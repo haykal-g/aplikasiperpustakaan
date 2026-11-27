@@ -2,6 +2,7 @@ import streamlit as st
 import mysql.connector
 import pandas as pd
 from datetime import date
+from database import koneksi
 
 def tampilkan_menu():
 
@@ -36,14 +37,8 @@ def tampilkan_menu():
 
         st.title("Daftar Buku Perpustakaan")
 
-        db = mysql.connector.connect(
-            host="localhost",
-            port=3306,
-            user="root",
-            password="",
-            database="db_perpustakaan"
-        )
-
+        db = koneksi()
+        
         query = "SELECT * FROM buku"
         data = pd.read_sql(query, db)
 
