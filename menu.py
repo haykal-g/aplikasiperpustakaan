@@ -72,13 +72,7 @@ def tampilkan_menu():
                     st.warning("Semua data wajib diisi!")
 
                 else:
-                    db = mysql.connector.connect(
-                        host="localhost",
-                        port=3306,
-                        user="root",
-                        password="",
-                        database="db_perpustakaan"
-                    )
+                    db = koneksi()
 
                     cursor = db.cursor()
 
@@ -115,13 +109,7 @@ def tampilkan_menu():
 
         st.subheader("Buku Terbaru")
 
-        db = mysql.connector.connect(
-            host="localhost",
-            port=3306,
-            user="root",
-            password="",
-            database="db_perpustakaan"
-        )
+        db = koneksi()
 
         query = """
         SELECT kode_buku, judul, penulis, kategori, stok
@@ -144,13 +132,7 @@ def tampilkan_menu():
 
         st.title("Peminjaman Buku")
 
-        db = mysql.connector.connect(
-            host="localhost",
-            port=3306,
-            user="root",
-            password="",
-            database="db_perpustakaan"
-        )
+        db = koneksi()
 
         cursor = db.cursor()
 
@@ -233,13 +215,7 @@ def tampilkan_menu():
 
         st.title("Pengembalian Buku")
 
-        db = mysql.connector.connect(
-            host="localhost",
-            port=3306,
-            user="root",
-            password="",
-            database="db_perpustakaan"
-        )
+        db = koneksi()
 
         cursor = db.cursor()
 
