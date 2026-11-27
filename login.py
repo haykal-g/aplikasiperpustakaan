@@ -2,6 +2,7 @@ import streamlit as st
 import mysql.connector
 import menu
 import hashlib
+from database import koneksi
 
 # Mengecek status login
 if "login" not in st.session_state:
@@ -35,14 +36,8 @@ if not st.session_state["login"]:
                 st.warning("Username dan password wajib diisi!")
 
             else:
-                db = mysql.connector.connect(
-                    host="localhost",
-                    port=3306,
-                    user="root",
-                    password="",
-                    database="db_perpustakaan"
-                )
 
+                db = koneksi()
                 cursor = db.cursor()
 
                 password_hash = hashlib.sha256(password.encode()).hexdigest()
