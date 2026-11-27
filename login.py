@@ -35,8 +35,7 @@ if not st.session_state["login"]:
             if username == "" or password == "":
                 st.warning("Username dan password wajib diisi!")
 
-            else:
-
+            else: 
                 db = koneksi()
                 cursor = db.cursor()
 
